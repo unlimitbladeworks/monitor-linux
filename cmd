@@ -1,0 +1,1 @@
+cd $(locate taskmngdomain/nohuplogs) ; tail -50 *log*`date +%F`*
