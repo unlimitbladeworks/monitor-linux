@@ -5,4 +5,16 @@ monitor-linux(监控linux)
 所以，我觉得这种东西如果可以实现一个远程自动化的监控工具是再好不过了，周末可以省下大把时间去浪:smile:~
 
 
+Environment(环境)
+---
+本项目为python编写的项目。
+
+- python3.6+
+
+用到的库:
+
+- paramiko
+- smtplib
+
+
 
