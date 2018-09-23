@@ -13,8 +13,9 @@ Environment(环境)
 
 用到的库:
 
-- paramiko
-- smtplib
+- paramiko      (linux ssh库)
+- smtplib       (邮件库)
+- APScheduler   (定时任务库)
 
 项目目录结构
 ---
