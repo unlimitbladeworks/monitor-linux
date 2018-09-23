@@ -19,16 +19,28 @@ Environment(环境)
 项目目录结构
 ---
 monitor-linux(:smiling_imp:)
+
     |--config
+
         |--gol.py               (全局变量字典)
+
         |--init_configs.py      (读取ini初始化配置)
+
         |--linux_config.ini     (linux服务器配置文件)
+
         |--mail_settings.ini    (邮箱设置配置文件)
+
     |--mail
+
         |--send_mails.py        (发送邮件)
+
     |--monitor
+
         |--monitor.py           (监控linux模块,连接linux服务器)
+
     |--utils
+
         |--                     (空,待补充...)
+        
     |--run.py                   (程序入口)
 
