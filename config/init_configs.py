@@ -48,6 +48,8 @@ def init_config():
     gol.set_value("ip", ip)
     gol.set_value("login_info", login_info)
     print("===加载linux_config.ini配置文件完毕===...")
+
+    # TODO 读取不同ip对应不同的命令，需要想个办法
     ip_128 = cf.get('cmd','10.10.111.1')
     pass
 
