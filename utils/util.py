@@ -15,10 +15,10 @@ import os
 
 
 # 读取
-def read_cmd():
+def read_file(file_name):
     # 获取key文件的绝对路径
-    cmd_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'cmd')
-    with open(cmd_path, 'r', encoding='utf-8') as f:
-        cmd = f.read()
+    file_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), file_name)
+    with open(file_path, 'r', encoding='utf-8') as f:
+        content = f.read()
         f.close()
-    return cmd
+    return content
