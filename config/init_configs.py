@@ -24,8 +24,8 @@ def find_file_path():
 def init_config():
     # 初始化全局变量的字典
     gol._init()
-    # 读取路径的配置文件
-    cf = configparser.ConfigParser()
+    # 读取路径的配置文件(**原本是ConfigParser,但是读取%号会有异常**)
+    cf = configparser.RawConfigParser()
     # 邮箱配置文件
     cf.read([os.path.join(find_file_path(), 'mail_settings.ini')], encoding='utf-8')
     mail_host = cf.get("mail-server", "mail_host")  # 邮箱服务器
@@ -48,6 +48,8 @@ def init_config():
     gol.set_value("ip", ip)
     gol.set_value("login_info", login_info)
     print("===加载linux_config.ini配置文件完毕===...")
+    ip_128 = cf.get('cmd','10.10.111.1')
+    pass
 
 
 def get_linux_config():

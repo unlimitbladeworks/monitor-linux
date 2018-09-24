@@ -17,7 +17,6 @@ BASE_DIR = os.path.dirname((os.path.abspath(__file__)))
 sys.path.append(BASE_DIR)
 
 from monitor.monitor import Monitor
-from utils.util import read_cmd
 from mail.send_mails import SendMail
 from config.init_configs import init_config, get_linux_config
 from apscheduler.schedulers.blocking import BlockingScheduler
