@@ -47,11 +47,11 @@ def init_config():
     login_info = cf.get('server-login', "login_info")
     gol.set_value("ip", ip)
     gol.set_value("login_info", login_info)
+    # 读取不同ip对应不同的命令
+    cmd_tuple = cf.items('cmd')
+    gol.set_value("cmd_tuple",cmd_tuple)
     print("===加载linux_config.ini配置文件完毕===...")
 
-    # TODO 读取不同ip对应不同的命令，需要想个办法
-    ip_128 = cf.get('cmd','10.10.111.1')
-    pass
 
 
 def get_linux_config():

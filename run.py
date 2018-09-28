@@ -32,7 +32,7 @@ def auto_job():
         pwd = linux_info[1]
         monitor = Monitor(ip, user, pwd)
         # TODO cmd的获取,添加根据ini不同ip实现动态对应linux指令
-        
+
         content = f'当前服务器ip:{ip},日志内容:\n' + monitor.link_server(cmd) + '\n\n'
         content_list.append(content)
     sendMail = SendMail()
