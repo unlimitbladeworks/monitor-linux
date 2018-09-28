@@ -13,6 +13,8 @@
 
 import sys, os
 
+from config import gol
+
 BASE_DIR = os.path.dirname((os.path.abspath(__file__)))
 sys.path.append(BASE_DIR)
 
@@ -26,13 +28,19 @@ def auto_job():
     init_config()  # 初始化配置
     linux_dict = get_linux_config()
     content_list = []
+    """ [(10.10.111.1,cd $(locate taskmngdomain1/nohuplogs) ; tail -50 *log*`date +%F`*),
+         (10.10.111.2,cd $(locate taskmngdomain2/nohuplogs) ; tail -50 *log*`date +%F`*)]"""
+    cmd_list = gol.get_value('cmd_list')
     for ip in linux_dict:
         linux_info = linux_dict[ip].split(',')  # 根据ip获取user和pwd,通过逗号分隔成list(linux_info--> [user,pwd])
         user = linux_info[0]
         pwd = linux_info[1]
         monitor = Monitor(ip, user, pwd)
-        # TODO cmd的获取,添加根据ini不同ip实现动态对应linux指令
-
+        # cmd的获取,添加根据ini不同ip实现动态对应linux指令
+        for cmd_tuple in cmd_list:
+            if cmd_tuple[0] == ip:
+                cmd = cmd_tuple[1]  # 将指令赋予cmd
+                break  # 若找到了,则不浪费循环资源直接跳出
         content = f'当前服务器ip:{ip},日志内容:\n' + monitor.link_server(cmd) + '\n\n'
         content_list.append(content)
     sendMail = SendMail()
