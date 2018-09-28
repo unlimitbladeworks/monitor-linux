@@ -48,18 +48,18 @@ def init_config():
     gol.set_value("ip", ip)
     gol.set_value("login_info", login_info)
     # 读取不同ip对应不同的命令
-    cmd_tuple = cf.items('cmd')
-    gol.set_value("cmd_tuple",cmd_tuple)
+    cmd_list = cf.items('cmd')
+    gol.set_value("cmd_list", cmd_list)
     print("===加载linux_config.ini配置文件完毕===...")
 
 
-
 def get_linux_config():
+    """ 获取linux 配置文件相关ip对应user,password 放入dict中"""
     linux_dict = {}
     ip_list = gol.get_value("ip").split(',')  # ip列表
     login_info_list = gol.get_value("login_info").split(';')  # 登录列表
     """ zip打包用法,同时遍历两个list """
-    for ip,login_info in zip(ip_list, login_info_list):
+    for ip, login_info in zip(ip_list, login_info_list):
         linux_dict[ip] = login_info
     return linux_dict
 
