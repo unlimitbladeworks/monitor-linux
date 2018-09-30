@@ -31,8 +31,8 @@ class SendMail(object):
             smtp.connect(self.mail_host, self.mail_port)
             smtp.login(self.mail_user, self.mail_pwd)
             self.smtp = smtp
-        except Exception as e:
-            print('发邮件---->初始化失败!原因:', e)
+        except:
+            print('发邮件---->初始化失败!请检查用户名和密码是否正确!')
 
     def send_mails(self, content):
         """ 发送邮件 """

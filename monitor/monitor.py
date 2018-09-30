@@ -24,7 +24,7 @@ class Monitor(object):
             self.client.connect(server_ip, 22, username=user, password=pwd, timeout=4)
             print('------------认证成功!.....-----------')
         except Exception:
-            print(f'连接远程linux服务器(ip:{server_ip})发生异常!')
+            print(f'连接远程linux服务器(ip:{server_ip})发生异常!请检查用户名和密码是否正确!')
 
     def link_server(self, cmd):
         """连接服务器发送命令"""

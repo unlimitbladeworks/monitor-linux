@@ -22,7 +22,7 @@ from monitor.monitor import Monitor
 from mail.send_mails import SendMail
 from config.init_configs import init_config, get_linux_config
 from apscheduler.schedulers.blocking import BlockingScheduler
-init_config()  # 初始化配置
+
 
 def auto_job():
     linux_dict = get_linux_config()
@@ -44,9 +44,11 @@ def auto_job():
         content_list.append(content)
     sendMail = SendMail()
     sendMail.send_mails(''.join(content_list))
+    sendMail.mail_close()   #关闭连接
 
 
 def main():
+    init_config()  # 初始化配置
     """ 基于quartz的定时任务调度器 """
     scheduler = BlockingScheduler()
     """ FIELD_NAMES = ('year', 'month', 'day', 'week', 'day_of_week', 'hour', 'minute', 'second') 

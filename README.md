@@ -26,6 +26,7 @@ monitor-linux(:smiling_imp:)
         |--init_configs.py      (读取ini初始化配置)
         |--linux_config.ini     (linux服务器配置文件)
         |--mail_settings.ini    (邮箱设置配置文件)
+        |--time_config.ini      (cron定时设置配置文件)
     |--mail
         |--send_mails.py        (发送邮件)
     |--monitor
