@@ -33,7 +33,6 @@ monitor-linux(:smiling_imp:)
         |--monitor.py           (监控linux模块,连接linux服务器)
     |--utils
         |--util.py              (工具类)
-    |--cmd                      (linux后台执行命令)
     |--run.py                   (程序入口)
 
 相关文章链接
